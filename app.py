@@ -8,7 +8,7 @@ from lib.rbcsim import RBC_model
 
 @st.cache_data(ttl='1d')
 def get_base_data():
-    return get_us_macro_data_for_rbcdemo(refresh=True)
+    return get_us_macro_data_for_rbcdemo(refresh=True,fred_api_key=st.secrets['FRED_KEY'])
 
 base_data_df = get_base_data()
 

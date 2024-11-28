@@ -4,7 +4,7 @@ import json
 import pandas as pd
 import numpy as np
 
-FRED_API_KEY = os.environ["FRED_API"]
+#FRED_API_KEY = os.environ["FRED_API"]
 
 def float_or_nan(x):
     try:
@@ -12,7 +12,7 @@ def float_or_nan(x):
     except:
         return float('nan')
 
-def get_fred_data(label,name=None,api_key=FRED_API_KEY):
+def get_fred_data(label,name=None,api_key=''):
     try:
         data = json.loads(
                     requests.get(
@@ -56,7 +56,7 @@ def get_us_macro_data_for_rbcdemo(import_dict={'K1TTOTL1ES000':'PK',
                                                'LFAC64TTUSQ647S':'L'
                                               },
                                   unrate_var='UNRATE',
-                                  fred_api_key=FRED_API_KEY,
+                                  fred_api_key='',
                                   cache_file='data/fred_data_cached.gzip',
                                   refresh=False
                                  ):
