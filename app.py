@@ -13,9 +13,19 @@ default_parameters = dict(delt = .015,
                    aaA = .08,
                    rho = .9,
                    sig = .1)
+
 def reset_to_defaults():
     for param in default_parameters:
         st.session_state[param] = default_parameters[param]
+
+initialize_params = False
+for param in default_parameters:
+    if param not in st.session_state:
+        initialize_params = True
+        break
+
+if initialize_params:
+    reset_to_defaults()
 
 @st.cache_data(ttl='1d')
 def get_base_data():
