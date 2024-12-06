@@ -6,6 +6,17 @@ import numpy as np
 from lib.dataprocess import get_us_macro_data_for_rbcdemo,make_detrended_rbc_sample
 from lib.rbcsim import RBC_model
 
+default_parameters = dict(delt = .015,
+                   sbar = .2,
+                   alph = .33,
+                   aak = .95,
+                   aaA = .08,
+                   rho = .9,
+                   sig = .1)
+def reset_to_defaults():
+    for param in default_parameters:
+        st.session_state[param] = default_parameters[param]
+
 @st.cache_data(ttl='1d')
 def get_base_data():
     return get_us_macro_data_for_rbcdemo(refresh=True,fred_api_key=st.secrets['FRED_KEY'])
@@ -27,32 +38,41 @@ with the_tabs[0]:
         shock_process_cols = st.columns(2)
         loglinear_savings_cols = st.columns(2)
         timepref_cols = st.columns(2)
+        st.button('Reset to default parameters', on_click=reset_to_defaults)
+
+
 
     with basic_params_cols[0]:
-        alph = st.number_input('Capital share of production ($\\alpha$):',max_value=0.99,min_value=0.01,value=0.33)
+        #alph =
+        st.number_input('Capital share of production ($\\alpha$):',max_value=0.99,min_value=0.01,key='alph') #,value=0.33)
     with basic_params_cols[1]:
-        delt = st.number_input('Capital depreciation rate ($\delta$, quarterly):',max_value=0.99,min_value=0.01,value=0.015,format="%.3f")
+        #delt =
+        st.number_input('Capital depreciation rate ($\delta$, quarterly):',max_value=0.99,min_value=0.01,key='delt',format="%.3f") #,value=0.015,format="%.3f")
 
     with shock_process_cols[0]:
-        rho = st.number_input('TFP shock persistence ($\\rho$):',max_value=0.99,min_value=-.99,value=0.9)
+        #rho =
+        st.number_input('TFP shock persistence ($\\rho$):',max_value=0.99,min_value=-.99,key='rho') #,value=0.9)
     with shock_process_cols[1]:
-        sig = st.number_input('TFP shock variance ($\sigma$):',max_value=10.,min_value=0.01,value=0.099)
+        #sig =
+        st.number_input('TFP shock variance ($\sigma$):',max_value=10.,min_value=0.01,key='sig') #,value=0.099)
 
     with loglinear_savings_cols[0]:
-        aak = st.number_input('Log-linear savings response to capital ($a_{kk}$):',max_value=0.99,min_value=-0.99,value=0.95)
+        #aak =
+        st.number_input('Log-linear savings response to capital ($a_{kk}$):',max_value=0.99,min_value=-0.99,key='aak') #,value=0.95)
     with loglinear_savings_cols[1]:
-        aaA = st.number_input('Log-linear savings response to TFP ($a_{kA}$):',max_value=0.99,min_value=-0.99,value=0.08)
+        #aaA =
+        st.number_input('Log-linear savings response to TFP ($a_{kA}$):',max_value=0.99,min_value=-0.99,key='aaA') #,value=0.08)
 
     #with timepref_cols[0]:
     #    bet = st.number_input('Time preference ($\\beta$):',max_value=0.99,min_value=0.01,value=0.95)
 
-    params_dict = dict(delt = delt,
+    params_dict = dict(delt = st.session_state.delt,
                        sbar = .2,
-                       alph = alph,
-                       aak = aak,
-                       aaA = aaA,
-                       rho = rho,
-                       sig = sig)
+                       alph = st.session_state.alph,
+                       aak = st.session_state.aak,
+                       aaA = st.session_state.aaA,
+                       rho = st.session_state.rho,
+                       sig = st.session_state.sig)
 
     if 'params_dict' not in st.session_state:
         st.session_state['params_dict'] = copy.copy(params_dict)
