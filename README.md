@@ -98,3 +98,27 @@ $$
 \begin{align*}\ln \tilde{k}\_{t+1} = a_{kA} \ln \tilde{A}\_t + a_{kk} \ln \tilde{k}_t
 \end{align*}
 $$
+
+## Data
+
+Data are at quarterly frequency and downloaded through the Federal Reserve Economic Data (FRED) API.
+
+Specific series identifiers are as follows:
+- **nominal output**: [`GDP`](https://fred.stlouisfed.org/series/GDP) *($ P Y$)*
+- **nominal capital stock**: [`K1TTOTL1ES000`](https://fred.stlouisfed.org/series/K1TTOTL1ES000) *($ P K$)*
+- **price index**: [`GDPDEF`](https://fred.stlouisfed.org/series/GDPDEF) *($ P $)*
+- **hours worked**: [`HOANBS`](https://fred.stlouisfed.org/series/HOANBS) *($ \frac{L}{\tilde{L}} $)*
+- **population/labor force**: [`LFAC64TTUSQ647S`](https://fred.stlouisfed.org/series/LFAC64TTUSQ647S) *($ N $)*
+
+Raw data for the nominal capital stock is at annual frequency and so the natural log is linearly interpolated across quarters.
+
+The following calculations are then performed:
+- $Y = \frac{P Y}{P}$
+- $K = \frac{P K}{P}$
+- $L = \frac{L}{\tilde{L}} \tilde{L}$
+- $l = \frac{L}{N}$
+
+The data source for both $L$ is given as an index with 2017 as the base year. Therefore $\tilde{L}$ is constructed as follows:
+
+$$\tilde{L} = \overbrace{\left [\frac{\underbrace{150,000,000}\_{\text{labor force in 2017}} \times \underbrace{2,000/4}\_{\text{work hrs/quarter}}}{\underbrace{100}\_{\text{base index value}}}\right ]}^{\text{(1) to hours based on typical work year}} \div \overbrace{\left [\underbrace{\left (\underbrace{365 \times \frac{5}{7} }\_{\text{wkdays/yr}} - \underbrace{2 \times 7}\_{\text{2 wks vacation}} \right ) \times \underbrace{24}\_{\text{hrs/day}} \times \underbrace{\frac{1}{4}}\_{\text{quarters}}}_{\text{total yearly hours minus weekends and 2 weeks vacation}} \right ]}^{\text{(2) to fraction of total available time}}
+$$
