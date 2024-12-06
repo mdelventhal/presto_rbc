@@ -164,13 +164,19 @@ class RBC_model():
         self.last_df_sim = df_sim
         return df_sim
 
-    def sim_deviations_chart(self,vars_to_include=['y_stat','k_stat','l'],width=None,height=None):
+    def sim_deviations_chart(self,vars_to_include={'y_stat':'output/worker',
+                                                   'k_stat':'capital/worker',
+                                                   'l':'labor supply'},width=None,height=None):
         return self.deviations_chart(self.last_df_sim,vars_to_include=vars_to_include,width=width,height=height)
 
-    def data_deviations_chart(self,vars_to_include=['y_stat','k_stat','l'],width=None,height=None):
+    def data_deviations_chart(self,vars_to_include={'y_stat':'output/worker',
+                                                   'k_stat':'capital/worker',
+                                                   'l':'labor supply'},width=None,height=None):
         return self.deviations_chart(self.df_in,vars_to_include=vars_to_include,width=width,height=height)
 
-    def deviations_chart(self,df,vars_to_include=['y_stat','k_stat','l'],width=None,height=None):
+    def deviations_chart(self,df,vars_to_include={'y_stat':'output/worker',
+                                                   'k_stat':'capital/worker',
+                                                   'l':'labor supply'},width=None,height=None):
         df_sim_altair = df[['date'] + vars_to_include].copy()
 
         for var in vars_to_include:
@@ -181,7 +187,10 @@ class RBC_model():
             chartkwargs['width'] = width
         if height is not None:
             chartkwargs['height'] = height
-        chart = alt.Chart(df_sim_altair.melt(id_vars='date', value_vars=vars_to_include,value_name='log deviations from BGP'),**chartkwargs)
+        chart = alt.Chart(df_sim_altair.rename(columns=vars_to_include).melt(id_vars='date',
+                                                                             value_vars=[vars_to_include[x] for x in vars_to_include],
+                                                                             value_name='log deviations from BGP'),
+                          **chartkwargs)
 
         return chart.mark_line().encode(x='date:T',y='log deviations from BGP:Q',color=alt.Color('variable:N',sort='descending'),)\
                     + chart.mark_rule(strokeDash=[4, 4]).encode(y=alt.datum(0))
