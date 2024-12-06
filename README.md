@@ -85,7 +85,7 @@ Taking the choice of $k_{t+1}$ as given, the choice of labor supply $l_t$ can be
 
 The de-trended equivalent of the above condition is
 $$
-\begin{align*}l_t \left (\frac{\psi}{1-\alpha} + 1\right ) + l_t^{\alpha} \frac{\psi}{1-\alpha} \frac{\tilde{k}_t (1-\delta) - (1+g_A)^{\frac{-1}{1-\alpha}}\tilde{k}_{t+1}}{\tilde{A}_t \tilde{k}_t^{\alpha}} - 1 = 0
+\begin{align*}l_t \left (\frac{\psi}{1-\alpha} + 1\right ) + l_t^{\alpha} \frac{\psi}{1-\alpha} \frac{\tilde{k}\_t (1-\delta) - (1+g_A)^{\frac{-1}{1-\alpha}}\tilde{k}_{t+1}}{\tilde{A}_t \tilde{k}_t^{\alpha}} - 1 = 0
 \end{align*}
 $$
 
@@ -94,6 +94,6 @@ $$
 As a shortcut, a log-linearized function is used to determine $k_{t+1}$, such that
 
 $$
-\begin{align*}\ln \tilde{k}_{t+1} = a_{kA} \ln \tilde{A}_t + a_{kk} \ln \tilde{k}_t
+\begin{align*}\ln \tilde{k}\_{t+1} = a_{kA} \ln \tilde{A}\_t + a_{kk} \ln \tilde{k}_t
 \end{align*}
 $$
