@@ -13,7 +13,9 @@ At each point in time the economy is populated by $N_t$ identical households wit
 The problem of a representative household can be written thus:
 
 $$
-\begin{align*}x + 2
+\begin{align*}
+& \quad \quad \quad \quad \quad \quad \quad \text{ such that } \\
+& \quad \quad \quad c_t + k_{t+1} \leq w_t l_t + r_t k_t + (1-\delta) k_t
 \end{align*}
 $$
 
