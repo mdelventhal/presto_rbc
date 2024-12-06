@@ -171,7 +171,7 @@ class RBC_model():
 
     def data_deviations_chart(self,vars_to_include={'y_stat':'output/worker (y)',
                                                    'k_stat':'capital/worker (k)',
-                                                   'l':'labor supply ($l$)'},width=None,height=None):
+                                                   'l':'labor supply (l)'},width=None,height=None):
         return self.deviations_chart(self.df_in,vars_to_include=vars_to_include,width=width,height=height)
 
     def deviations_chart(self,df,vars_to_include={'y_stat':'output/worker (y)',
