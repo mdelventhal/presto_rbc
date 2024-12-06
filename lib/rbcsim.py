@@ -164,19 +164,19 @@ class RBC_model():
         self.last_df_sim = df_sim
         return df_sim
 
-    def sim_deviations_chart(self,vars_to_include={'y_stat':'output/worker',
-                                                   'k_stat':'capital/worker',
-                                                   'l':'labor supply'},width=None,height=None):
+    def sim_deviations_chart(self,vars_to_include={'y_stat':'output/worker ($\tilde{y}$)',
+                                                   'k_stat':'capital/worker ($\tilde{k}$)',
+                                                   'l':'labor supply ($l$)'},width=None,height=None):
         return self.deviations_chart(self.last_df_sim,vars_to_include=vars_to_include,width=width,height=height)
 
-    def data_deviations_chart(self,vars_to_include={'y_stat':'output/worker',
-                                                   'k_stat':'capital/worker',
-                                                   'l':'labor supply'},width=None,height=None):
+    def data_deviations_chart(self,vars_to_include={'y_stat':'output/worker ($\tilde{y}$)',
+                                                   'k_stat':'capital/worker ($\tilde{k}$)',
+                                                   'l':'labor supply ($l$)'},width=None,height=None):
         return self.deviations_chart(self.df_in,vars_to_include=vars_to_include,width=width,height=height)
 
-    def deviations_chart(self,df,vars_to_include={'y_stat':'output/worker',
-                                                   'k_stat':'capital/worker',
-                                                   'l':'labor supply'},width=None,height=None):
+    def deviations_chart(self,df,vars_to_include={'y_stat':'output/worker ($\tilde{y}$)',
+                                                   'k_stat':'capital/worker ($\tilde{k}$)',
+                                                   'l':'labor supply ($l$)'},width=None,height=None):
         df_sim_altair = df[['date'] + [x for x in vars_to_include]].copy()
 
         for var in vars_to_include:
