@@ -52,7 +52,7 @@ $$
 The evolution of $\tilde{A}_t$ is governed according to a first-order auto-regressive process:
 
 $$
-\begin{align*}\ln \tilde{A}_t = \rho \ln \tilde{A}_{t-1} + \varepsilon_t
+\begin{align*}\ln \tilde{A}\_t = \rho \ln \tilde{A}_{t-1} + \varepsilon_t
 \end{align*}
 $$
 
