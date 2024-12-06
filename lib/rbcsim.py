@@ -177,7 +177,7 @@ class RBC_model():
     def deviations_chart(self,df,vars_to_include={'y_stat':'output/worker',
                                                    'k_stat':'capital/worker',
                                                    'l':'labor supply'},width=None,height=None):
-        df_sim_altair = df[['date'] + vars_to_include].copy()
+        df_sim_altair = df[['date'] + [x for x in vars_to_include]].copy()
 
         for var in vars_to_include:
             df_sim_altair[var] = np.log(df_sim_altair[var]/df_sim_altair[var].mean())
