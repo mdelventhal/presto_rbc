@@ -104,11 +104,11 @@ $$
 Data are at quarterly frequency and downloaded through the Federal Reserve Economic Data (FRED) API.
 
 Specific series identifiers are as follows:
-- **nominal output**: [`GDP`](https://fred.stlouisfed.org/series/GDP) *(* $ P Y$ *)*
-- **nominal capital stock**: [`K1TTOTL1ES000`](https://fred.stlouisfed.org/series/K1TTOTL1ES000) *(* $ P K$ *)*
-- **price index**: [`GDPDEF`](https://fred.stlouisfed.org/series/GDPDEF) *(* $ P $ *)*
-- **hours worked**: [`HOANBS`](https://fred.stlouisfed.org/series/HOANBS) *(* $ \frac{L}{\tilde{L}} $ *)*
-- **population/labor force**: [`LFAC64TTUSQ647S`](https://fred.stlouisfed.org/series/LFAC64TTUSQ647S) *(* $ N $ *)*
+- **nominal output**: [`GDP`](https://fred.stlouisfed.org/series/GDP) *(* $`P Y`$ *)*
+- **nominal capital stock**: [`K1TTOTL1ES000`](https://fred.stlouisfed.org/series/K1TTOTL1ES000) *(* $`P K`$ *)*
+- **price index**: [`GDPDEF`](https://fred.stlouisfed.org/series/GDPDEF) *(* $`P`$ *)*
+- **hours worked**: [`HOANBS`](https://fred.stlouisfed.org/series/HOANBS) *(* $`\frac{L}{\tilde{L}}`$ *)*
+- **population/labor force**: [`LFAC64TTUSQ647S`](https://fred.stlouisfed.org/series/LFAC64TTUSQ647S) *(* $`N`$ *)*
 
 Raw data for the nominal capital stock is at annual frequency and so the natural log is linearly interpolated across quarters.
 
