@@ -12,10 +12,12 @@ At each point in time the economy is populated by $N_t$ identical households wit
 
 The problem of a representative household can be written thus:
 
+$$
 \begin{align\*}&\max\limits_{c_t,l_t,k_{t+1}} \left \{\sum\limits_{t=0}^{\infty} \beta^t \left [\ln c_t + \psi \ln \left (1-l_t \right ) \right ]\right \} \\
 & \quad \quad \quad \quad \quad \quad \quad \text{ such that } \\
 & \quad \quad \quad c_t + k_{t+1} \leq w_t l_t + r_t k_t + (1-\delta) k_t
 \end{align\*}
+$$
 
 ...where $\beta \in (0,1)$ represents time prefence, $\delta \in [0,1]$ represents the depreciation rate of capital, and $\psi>0$ determines the relative weight households place on leisure versus the consumption of goods and services.
 
@@ -25,13 +27,14 @@ The economy is populated by a large number of identical firms who seek to maximi
 
 All firms share an identical Cobb-Douglas production function with TFP $A_t > 0$ and capital share $\alpha \in (0,1)$ such that aggregate production $Y_t$ and market equilibrium capital return $r_t$ and wage $w_t$ can be characterized by the following:
 
-
+$$
 \begin{align*}Y_t &= A_t K_t^{\alpha} L_t^{1-\alpha}\\
 \\
 r_t &= \alpha A_t k_t^{\alpha-1} l_t^{1-\alpha}\\
 \\
 w_t &= \alpha A_t k_t^{\alpha} l_t^{-\alpha}
 \end{align*}
+$$
 
 Output per capita $y_t$ can then be characterized as
 $$y_t = A_t k_t^{\alpha} l_t^{1-\alpha}$$
