@@ -84,6 +84,7 @@ $$
 Taking the choice of $k_{t+1}$ as given, the choice of labor supply $l_t$ can be solved for numerically-or in the special case of $\alpha = \frac{1}{2}$, analytically.
 
 The de-trended equivalent of the above condition is
+
 $$
 \begin{align*}l_t \left (\frac{\psi}{1-\alpha} + 1\right ) + l_t^{\alpha} \frac{\psi}{1-\alpha} \frac{\tilde{k}\_t (1-\delta) - (1+g_A)^{\frac{-1}{1-\alpha}}\tilde{k}_{t+1}}{\tilde{A}_t \tilde{k}_t^{\alpha}} - 1 = 0
 \end{align*}
