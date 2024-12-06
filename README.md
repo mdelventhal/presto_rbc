@@ -11,8 +11,22 @@ A discrete-time adaptation of the model presented in Chapter 5 of David Romer's 
 At each point in time the economy is populated by $N_t$ identical households with 1 member each who own capital and are endowed with 1 unit of labor. They rent their capital $k_t$ for return $r_t$ and rent a fraction $l_t$ of their labor for wage $w_t$. They value consumption $c_t$ and leisure $1-l_t$.
 
 The problem of a representative household can be written thus:
+
 $$
-\max\limits_{c_t,l_t,k_{t+1}} \left \{\sum\limits_{t=0}^{\infty} \beta^t \left [\ln c_t + \psi \ln \left (1-l_t \right ) \right ]\right \} 
+\max\limits_{c_t,l_t,k_{t+1}}
+$$
+
+$$
+ \left \{\sum\limits_{t=0}^{\infty} \beta^t \left [\ln c_t + \psi \ln \left (1-l_t \right ) \right ]\right \}
+$$
+
+$$
+\sum\limits_{t=0}^{\infty} \beta^t \left [\ln c_t + \psi \ln \left (1-l_t \right ) \right ]
+$$
+
+
+$$
+\max\limits_{c_t,l_t,k_{t+1}} \left \{\sum\limits_{t=0}^{\infty} \beta^t \left [\ln c_t + \psi \ln \left (1-l_t \right ) \right ]\right \}
 $$
 
 $$
